@@ -58,6 +58,7 @@ void append(char *self, char *other) {
 	int len_self = strlen(self), len_other = strlen(other);
 	int i = 0;
 	self = realloc(self, (len_self + len_other + 1) * sizeof(char));
+	mem_check(self);
 	for(i = 0; i < len_other; i++) {
 		self[i+len_self] = other[i];
 	}
@@ -67,6 +68,7 @@ void append(char *self, char *other) {
 void push_back(char *self, char c) {
 	int len = strlen(self) + 2;
 	self = realloc(self, len * sizeof(char));
+	mem_check(self);
 	self[len-2] = c;
 	self[len-1] = '\0';
 }
@@ -86,6 +88,7 @@ int insert_string(char *self, char *other, int index) {
 
 	int len_self = strlen(self), len_other = strlen(other);
 	self = realloc(self, (len_self + len_other + 1) * sizeof(char));
+	mem_check(self);
 	int i = 0;
 	for(i = len_self; i >= index; --i) {
 		self[i+len_other] = self[i];
@@ -106,6 +109,7 @@ int insert_char(char *self, char c, int index) {
 
 	int len_self = strlen(self);
 	self = realloc(self, (len_self + 1) * sizeof(char));
+	mem_check(self);
 	int i = 0;
 	for(i = len_self; i >= index; --i) {
 		self[i+1] = self[i];
@@ -196,6 +200,7 @@ int erase_string(char *self, int start_index, int end_index) {
 	}
 	self[i] = '\0';
 	self = realloc(self, (strlen(self) + 1) * sizeof(char));
+	mem_check(self);
 
 	return 1;
 }
@@ -213,6 +218,7 @@ int erase_char(char *self, int index) {
 		self[i] = self[i+1];
 	}
 	self = realloc(self, len * sizeof(char));
+	mem_check(self);
 	self[len] = '\0';
 
 	return 1;
