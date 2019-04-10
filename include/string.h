@@ -27,6 +27,7 @@ struct string {
 	int (*erase_char)(char *, int);
 	void (*copy)(char *, char *);
 	void (*value)(char *, char *);
+	void (*delete_string)(char *self);
 };
 extern const struct string String;
 
@@ -51,5 +52,6 @@ int erase_string(char *self, int start_index, int ennd_index);
 int erase_char(char *self, int index);
 void copy(char *self, char *other);
 void value(char *self, char *str);
+void delete_string(char *self);
 
 #endif

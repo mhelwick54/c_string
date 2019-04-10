@@ -37,6 +37,7 @@ int main() {
 	String.erase_string(test, 0, 6);
 	String.print(test, "stdout");
 	String.erase(test);
+	String.delete_string(test);
 
 	return 0;
 }

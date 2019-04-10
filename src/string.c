@@ -265,5 +265,6 @@ const struct string String = {
 	&erase_string,
 	&erase_char,
 	&copy,
-	&value
+	&value,
+	&delete_string
 };
